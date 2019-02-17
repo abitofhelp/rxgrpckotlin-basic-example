@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_package = "grpckotlin.simple";
+option java_outer_classname = "OuterGrpcKotlinSimple";
+option java_multiple_files = true;
+
+service GisMappingService {
+    rpc TranslateEnToFr(Request) returns (Response) {}
+}
+
+message Request {
+    string enMessage = 1;
+}
+
+message Response {
+    string frMessage = 1;
+}

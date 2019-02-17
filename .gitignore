@@ -1,0 +1,34 @@
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+# Ignore all of the .idea folder, except we want to keep the copyright templates.
+.idea/copyright/
+!/.idea
+/.idea/*
+!/.idea/copyright
+
+*.iws
+*.iml
+*.ipr
+/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### GRPC ###
+/build/
