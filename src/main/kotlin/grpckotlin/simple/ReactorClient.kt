@@ -5,6 +5,7 @@
 
 package grpckotlin.simple
 
+import io.grpc.inprocess.InProcessChannelBuilder
 import io.grpc.netty.NettyChannelBuilder
 import reactor.core.publisher.Mono
 
@@ -18,12 +19,12 @@ class ReactorClient {
         fun main(args: Array<String>) {
             println("Running the reactor grpc client...")
 
-            // channel = InProcessChannelBuilder.forName("GradleProof").build()
-            val channel = NettyChannelBuilder
-                    .forAddress("localhost", 5800)
-                    .usePlaintext()
-                    .flowControlWindow(NettyChannelBuilder.DEFAULT_FLOW_CONTROL_WINDOW)
-                    .build()
+            val channel = InProcessChannelBuilder.forName("GradleProof").build()
+//            val channel = NettyChannelBuilder
+//                    .forAddress("localhost", 5800)
+//                    .usePlaintext()
+//                    .flowControlWindow(NettyChannelBuilder.DEFAULT_FLOW_CONTROL_WINDOW)
+//                    .build()
 
             try {
                 val stub = ReactorGisMappingServiceGrpc.newReactorStub(channel)
