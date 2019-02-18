@@ -7,7 +7,7 @@
  * in the user manual at https://docs.gradle.org/5.2/userguide/multi_project_builds.html
  */
 
-pluginManagement{
+pluginManagement {
     repositories {
         mavenLocal()
         maven("https://plugins.gradle.org/m2/")

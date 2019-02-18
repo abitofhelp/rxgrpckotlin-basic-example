@@ -1,31 +1,31 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2019 - A Bit of Help, Inc.  All Rights Reserved.
+// Use of this source code is governed by the content in the LICENSE file in the root of this repository.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 package grpckotlin.simple
 
 import io.grpc.ManagedChannelBuilder
-import java.util.logging.Logger
 
 class Client {
 
     companion object {
-        // private val logger = Logger.getLogger(Client::class.java.name)
 
-        /**
-         * Greet server. If provided, the first element of `args` is the name to use in the
-         * greeting.
-         */
         @Throws(Exception::class)
         @JvmStatic
         fun main(args: Array<String>) {
-            println("Running the test client.")
+            println("Running the grpc client...")
 
             var channel = ManagedChannelBuilder.forAddress("localhost", 5800).usePlaintext().build()
             val blockingStub = GisMappingServiceGrpc.newBlockingStub(channel)
 
-            val request = Request.newBuilder().setEnMessage("Me?").build()
+            val enMsg = "Me?"
+            val request = Request.newBuilder().setEnMessage(enMsg).build()
 
             println("Sending '${request.enMessage}' to be translated to French...")
             val response = blockingStub.translateEnToFr(request)
-
-            println("The translation of '${request.enMessage}' ${response.frMessage}.")
+            val frMsg = response.frMessage
+            println("The translation of '$enMsg' en Francais est '$frMsg'")
         }
     }
 }

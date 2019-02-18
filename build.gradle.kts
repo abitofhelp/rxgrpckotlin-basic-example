@@ -1,5 +1,4 @@
 import com.google.protobuf.gradle.*
-import org.gradle.kotlin.dsl.provider.gradleKotlinDslOf
 
 plugins {
     // Apply the application plugin to add support for building a CLI application.
@@ -34,9 +33,9 @@ dependencies {
 
 //    implementation( "com.google.api.grpc:proto-google-common-protos:1.14.0")
     implementation("io.grpc:grpc-protobuf:1.15.1")
-    
+
     // FixMe: Netty-Shaded wouldn't work...
-    // Exception in thread "main" java.lang.NoSuchMethodError: 
+    // Exception in thread "main" java.lang.NoSuchMethodError:
     // io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder.getTransportTracerFactory()Lio/grpc/internal/TransportTracer$Factory;
     implementation("io.grpc:grpc-netty:1.18.0")
     implementation("io.grpc:grpc-stub:1.15.1")
@@ -61,11 +60,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 
 
-
-   // implementation("com.google.protobuf:protobuf-java:3.6.1")
-
-
-
+    // implementation("com.google.protobuf:protobuf-java:3.6.1")
 
 
 }

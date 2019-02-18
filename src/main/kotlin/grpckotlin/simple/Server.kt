@@ -1,16 +1,32 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2019 - A Bit of Help, Inc.  All Rights Reserved.
+// Use of this source code is governed by the content in the LICENSE file in the root of this repository.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 package grpckotlin.simple
 
 import io.grpc.ServerBuilder
 
-fun main(args: Array<String>) {
-    println("Starting this awful piece of garbage.")
+class Server {
 
-    val port = 5800
+    companion object {
 
-    val server = GisMappingServiceImpl()
-    val s = ServerBuilder.forPort(port).addService(server).build()
-    var tmp = s.start()
+        @Throws(Exception::class)
+        @JvmStatic
+        fun main(args: Array<String>) {
 
-    println("Server started, listening on $port")
-    tmp.awaitTermination()
+            println("Starting the grpc server...")
+
+            val port = 5800
+
+            val service = GisMappingServiceImpl()
+            val server = ServerBuilder.forPort(port).addService(service).build()
+            val instance = server.start()
+
+            println("Server started, listening on $port")
+            instance.awaitTermination()
+            //server.shutdownNow()
+            println("Terminating the grpc server...")
+        }
+    }
 }
